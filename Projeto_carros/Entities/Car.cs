@@ -1,5 +1,4 @@
 ﻿using Entities.Enums;
-using System.Collections;
 
 namespace Entities
 {
@@ -55,7 +54,7 @@ namespace Entities
 
                 foreach (Client i in Client.lista_de_clientes)
                 {
-                    foreach (Car k in Car.lista_de_carros)
+                    foreach (Car k in lista_de_carros)
                     {
                         if (i.codigo == codigo)
                         {
@@ -71,6 +70,64 @@ namespace Entities
                 }
             }
 
+        }
+
+        public static void Alugar_Carro()
+        {
+            Console.WriteLine("\n-----------------------------\n \nAlugando um carro:\n");
+
+            Console.Write("\nJá está cadastrado? \n[1 - Sim /2 - Não] \n->");
+            int escolha = Convert.ToInt16(Console.ReadLine());
+            int codigo = 1;
+
+            if (escolha == 1 && Client.lista_de_clientes.Count > 0)
+            {
+                Client.Mostrar_clientes();
+                Console.Write("\nQual cliente seria? \n[Código] -> ");
+                codigo = Convert.ToInt16(Console.ReadLine());
+            }
+
+            else if (escolha == 1 && Client.lista_de_clientes.Count <= 0)
+            {
+                Console.WriteLine("\nNão possui nenhum cliente no momento. Vamos adicionar como novo:");
+                codigo = 0;
+                Client.Adicionar_cliente();
+            }
+
+            else if (escolha == 2)
+            {
+                Client.Adicionar_cliente();
+                codigo = 1;
+            }
+
+            foreach (Car i in lista_de_carros)
+            {
+                if (i.disposicao == 0) i.Mostrar_dados();
+            }
+
+            Console.Write("\nQual carro gostaria de alugar? \n[ID] -> ");
+            int escolha2 = Convert.ToInt16(Console.ReadLine());
+
+            Console.WriteLine("\nCarro escolhido:");
+            foreach (Car i in lista_de_carros)
+            {
+                foreach (Client j in Client.lista_de_clientes)
+                {
+                    if (i.id == escolha2)
+                    {
+                        i.disposicao = (Disposicao)1;
+                        i.Mostrar_dados();
+
+                        if (j.codigo == codigo)
+                        {
+                            j.carro = i.id;
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine("Criado e alugado!");
+            Console.ReadLine();
         }
 
         public static void Adicionar_Carro()

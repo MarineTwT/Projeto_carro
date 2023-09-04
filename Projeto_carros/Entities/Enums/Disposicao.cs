@@ -3,6 +3,6 @@
     enum Disposicao : int
     {
         Disponivel,
-        Ocupado
+        Alugado
     }
 }

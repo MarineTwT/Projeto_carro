@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using System;
 
 namespace Entities
 {
@@ -20,13 +20,11 @@ namespace Entities
 
             do
             {
-                Console.Clear();
                 Mostrar_menu();
 
                 try
                 {
                     opcao = Convert.ToInt16(Console.ReadLine());
-                    Console.Clear();
 
                     switch (opcao)
                     {
@@ -56,7 +54,7 @@ namespace Entities
 
                         case 4:
                             
-                        Client.Alugar_Carro();
+                        Car.Alugar_Carro();
                         Console.Clear();
                         break;
                             
@@ -64,6 +62,7 @@ namespace Entities
                         case 5:
                             
                         Car.Devolver_carro();
+                        Console.Clear();
                         break;
                             
 
