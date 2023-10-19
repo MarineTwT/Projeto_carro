@@ -61,13 +61,6 @@ namespace Entities
 
                         case 5:
                             
-                        Car.Devolver_carro();
-                        Console.Clear();
-                        break;
-                            
-
-                        case 6:
-                            
                         Console.WriteLine("\nTenha um bom dia!\n");
                         Thread.Sleep(2000);
                         break;
