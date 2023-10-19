@@ -44,14 +44,6 @@ namespace Entities
             lista_de_clientes.Add(new Client(codigo, nome, sobrenome, nif));
         }
 
-        /*public void Mostrar_dados()
-        {
-            Console.WriteLine("\n--- Cliente ---");
-            Console.WriteLine("Código: {0}", Id);
-            Console.WriteLine("Nome: {0} {1}", nome, sobrenome);
-            Console.WriteLine("NIF: {0} ", nif);
-        }*/
-
         public override string ToString()
         {
             return "\n--- Cliente ---"
